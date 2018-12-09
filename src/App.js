@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {UnAuthLayout} from './layout/UnAuthLayout'
+import {AuthLayout} from './layout/AuthLayout'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import NavbarComponent from './components/navbarComponent/NavbarComponent';
+import HomePage from './layout/homePage/HomePage'
+
 
 class App extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {
+      isAuthorized: false,
+    };
+  }
+
+  render() {   
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+  <div className="App">
+  <header className="App-header">
+      <NavbarComponent></NavbarComponent>
+  </header>
+  <div className="App-Body"> 
+  <HomePage></HomePage>
+  </div>
+
+  <div className="App-footer"></div>  
+    </div>  
     );
   }
 }
